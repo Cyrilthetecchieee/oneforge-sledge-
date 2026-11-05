@@ -1,0 +1,30 @@
+name: Sync DESIGN.md library
+
+on:
+  schedule:
+    - cron: "23 4 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Verify and sync adapted catalog
+        run: node scripts/sync-adapted.mjs
+
+      - name: Run Test Suite
+        run: npm test

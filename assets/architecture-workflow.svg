@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 380" width="960" height="380">
+  <defs>
+    <linearGradient id="card-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1E293B"/>
+      <stop offset="100%" stop-color="#0F172A"/>
+    </linearGradient>
+    <linearGradient id="line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38BDF8"/>
+      <stop offset="100%" stop-color="#6366F1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="960" height="380" rx="12" fill="#090D16" stroke="#1E293B"/>
+
+  <text x="480" y="45" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="20" font-weight="700" fill="#F8FAFC" text-anchor="middle">ONEFORGE SLEDGE PIPELINE ARCHITECTURE</text>
+
+  <!-- Step 1: Ingestion & SSRF -->
+  <g transform="translate(40, 80)">
+    <rect width="180" height="240" rx="10" fill="url(#card-grad)" stroke="#334155"/>
+    <rect x="0" y="0" width="180" height="6" rx="3" fill="#38BDF8"/>
+    <text x="90" y="35" font-family="sans-serif" font-size="14" font-weight="700" fill="#38BDF8" text-anchor="middle">1. EXTRACTION</text>
+    <text x="90" y="70" font-family="sans-serif" font-size="12" fill="#94A3B8" text-anchor="middle">Target Web URL</text>
+    <text x="90" y="105" font-family="sans-serif" font-size="11" fill="#E2E8F0" text-anchor="middle">* DNS Resolution</text>
+    <text x="90" y="128" font-family="sans-serif" font-size="11" fill="#E2E8F0" text-anchor="middle">* SSRF Shield</text>
+    <text x="90" y="151" font-family="sans-serif" font-size="11" fill="#E2E8F0" text-anchor="middle">* Robots.txt Check</text>
+    <text x="90" y="174" font-family="sans-serif" font-size="11" fill="#E2E8F0" text-anchor="middle">* HTML/CSS Ingestion</text>
+    <rect x="25" y="200" width="130" height="26" rx="4" fill="#0284C7" opacity="0.2"/>
+    <text x="90" y="217" font-family="sans-serif" font-size="11" font-weight="600" fill="#38BDF8" text-anchor="middle">Raw Style Payload</text>
+  </g>
+
+  <!-- Connector 1 -->
+  <line x1="225" y1="200" x2="265" y2="200" stroke="#38BDF8" stroke-width="2" stroke-dasharray="4"/>
+  <polygon points="265,196 273,200 265,204" fill="#38BDF8"/>
+
+  <!-- Step 2: Analysis & Intelligence -->
+  <g transform="translate(275, 80)">
+    <rect width="180" height="240" rx="10" fill="url(#card-grad)" stroke="#334155"/>
+    <rect x="0" y="0" width="180" height="6" rx="3" fill="#6366F1"/>
+    <text x="90" y="35" font-family="sans-serif" font-size="14" font-weight="700" fill="#818CF8" text-anchor="middle">2. INTELLIGENCE</text>
+    <text x="90" y="70" font-family="sans-serif" font-size="12" fill="#94A3B8" text-anchor="middle">Pattern Mining</text>
+    <text x="90" y="105" font-family="sans-serif" font-size="11" fill="#E2E8F0" text-anchor="middle">* DeltaE Color Cluster</text>
+    <text x="90" y="128" font-family="sans-serif" font-size="11" fill="#E2E8F0" text-anchor="middle">* Modular Type Scale</text>
+    <text x="90" y="151" font-family="sans-serif" font-size="11" fill="#E2E8F0" text-anchor="middle">* Base Grid Fitting</text>
+    <text x="90" y="174" font-family="sans-serif" font-size="11" fill="#E2E8F0" text-anchor="middle">* Confidence Scorer</text>
+    <rect x="25" y="200" width="130" height="26" rx="4" fill="#4F46E5" opacity="0.2"/>
+    <text x="90" y="217" font-family="sans-serif" font-size="11" font-weight="600" fill="#818CF8" text-anchor="middle">Typed Token Graph</text>
+  </g>
+
+  <!-- Connector 2 -->
+  <line x1="460" y1="200" x2="500" y2="200" stroke="#818CF8" stroke-width="2" stroke-dasharray="4"/>
+  <polygon points="500,196 508,200 500,204" fill="#818CF8"/>
+
+  <!-- Step 3: Synthesis & Verification -->
+  <g transform="translate(510, 80)">
+    <rect width="180" height="240" rx="10" fill="url(#card-grad)" stroke="#334155"/>
+    <rect x="0" y="0" width="180" height="6" rx="3" fill="#C084FC"/>
+    <text x="90" y="35" font-family="sans-serif" font-size="14" font-weight="700" fill="#C084FC" text-anchor="middle">3. SYNTHESIS</text>
+    <text x="90" y="70" font-family="sans-serif" font-size="12" fill="#94A3B8" text-anchor="middle">Format Generator</text>
+    <text x="90" y="105" font-family="sans-serif" font-size="11" fill="#E2E8F0" text-anchor="middle">* YAML Frontmatter</text>
+    <text x="90" y="128" font-family="sans-serif" font-size="11" fill="#E2E8F0" text-anchor="middle">* DESIGN.md Rules</text>
+    <text x="90" y="151" font-family="sans-serif" font-size="11" fill="#E2E8F0" text-anchor="middle">* CSS / Tailwind</text>
+    <text x="90" y="174" font-family="sans-serif" font-size="11" fill="#E2E8F0" text-anchor="middle">* W3C DTCG JSON</text>
+    <rect x="25" y="200" width="130" height="26" rx="4" fill="#9333EA" opacity="0.2"/>
+    <text x="90" y="217" font-family="sans-serif" font-size="11" font-weight="600" fill="#C084FC" text-anchor="middle">Validated Tokens</text>
+  </g>
+
+  <!-- Connector 3 -->
+  <line x1="695" y1="200" x2="735" y2="200" stroke="#C084FC" stroke-width="2" stroke-dasharray="4"/>
+  <polygon points="735,196 743,200 735,204" fill="#C084FC"/>
+
+  <!-- Step 4: Consumers -->
+  <g transform="translate(745, 80)">
+    <rect width="180" height="240" rx="10" fill="url(#card-grad)" stroke="#334155"/>
+    <rect x="0" y="0" width="180" height="6" rx="3" fill="#34D399"/>
+    <text x="90" y="35" font-family="sans-serif" font-size="14" font-weight="700" fill="#34D399" text-anchor="middle">4. CONSUMPTION</text>
+    <text x="90" y="70" font-family="sans-serif" font-size="12" fill="#94A3B8" text-anchor="middle">Developers &amp; Agents</text>
+    <text x="90" y="105" font-family="sans-serif" font-size="11" fill="#E2E8F0" text-anchor="middle">* OneForge CLI (sledge)</text>
+    <text x="90" y="128" font-family="sans-serif" font-size="11" fill="#E2E8F0" text-anchor="middle">* MCP JSON-RPC Server</text>
+    <text x="90" y="151" font-family="sans-serif" font-size="11" fill="#E2E8F0" text-anchor="middle">* Claude / Cursor / Codex</text>
+    <text x="90" y="174" font-family="sans-serif" font-size="11" fill="#E2E8F0" text-anchor="middle">* Web UI Dashboard</text>
+    <rect x="25" y="200" width="130" height="26" rx="4" fill="#059669" opacity="0.2"/>
+    <text x="90" y="217" font-family="sans-serif" font-size="11" font-weight="600" fill="#34D399" text-anchor="middle">Production UI</text>
+  </g>
+</svg>

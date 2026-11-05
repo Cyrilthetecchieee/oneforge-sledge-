@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OneForge Sledge — Design Intelligence &amp; Token Platform</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/oneforge-sledge-logo.svg">
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="brand-header">
+        <div class="brand-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+            <polygon points="12,2 21,7 21,17 12,22 3,17 3,7" stroke="#38BDF8" stroke-width="2" fill="#0B132B"/>
+            <path d="M7 14 L17 14 L15 17 L9 17 Z" fill="#6366F1"/>
+            <line x1="12" y1="6" x2="12" y2="11" stroke="#F43F5E" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-sub">ONEFORGE</span>
+          <span class="brand-name">SLEDGE</span>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <button class="nav-item active" data-tab="dashboard">
+          <span class="nav-icon">📊</span> Dashboard
+        </button>
+        <button class="nav-item" data-tab="library">
+          <span class="nav-icon">📚</span> Design Library
+        </button>
+        <button class="nav-item" data-tab="analyzer">
+          <span class="nav-icon">⚡</span> Website Analyzer
+        </button>
+        <button class="nav-item" data-tab="tokens">
+          <span class="nav-icon">🎨</span> Token Explorer
+        </button>
+        <button class="nav-item" data-tab="compare">
+          <span class="nav-icon">⚖️</span> Design Comparison
+        </button>
+        <button class="nav-item" data-tab="generator">
+          <span class="nav-icon">📝</span> DESIGN.md Studio
+        </button>
+        <button class="nav-item" data-tab="export">
+          <span class="nav-icon">📦</span> Export Center
+        </button>
+        <button class="nav-item" data-tab="agent">
+          <span class="nav-icon">🤖</span> AI Agent &amp; MCP
+        </button>
+        <button class="nav-item" data-tab="settings">
+          <span class="nav-icon">⚙️</span> Custom Systems
+        </button>
+        <button class="nav-item" data-tab="docs">
+          <span class="nav-icon">📖</span> Documentation
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button id="themeToggle" class="btn-theme-toggle" title="Toggle Light/Dark Theme">
+          <span id="themeIcon">☀️</span> <span id="themeLabel">Light Mode</span>
+        </button>
+        <div class="version-tag">OneForge Sledge v1.0.0</div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Top Bar -->
+      <header class="topbar">
+        <div class="topbar-search">
+          <input type="text" id="globalSearchInput" placeholder="Quick search 168+ design systems (e.g. Stripe, Linear, Geist)...">
+        </div>
+        <div class="topbar-actions">
+          <button class="btn btn-primary" id="btnQuickAnalyze">+ Analyze Website</button>
+          <a href="https://github.com/MY_GITHUB_USERNAME/oneforge-sledge" target="_blank" class="btn btn-secondary">GitHub</a>
+        </div>
+      </header>
+
+      <!-- TAB 1: DASHBOARD -->
+      <section id="tab-dashboard" class="tab-pane active">
+        <div class="dashboard-hero">
+          <h1>AI-Powered Design Intelligence</h1>
+          <p>Inspect, discover, extract, and engineer design systems for humans and autonomous AI coding agents.</p>
+        </div>
+
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-title">Curated Design Systems</div>
+            <div class="metric-value" id="metricTotalBrands">168</div>
+            <div class="metric-subtitle">Across 11 verified industries</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-title">Standard Token Format</div>
+            <div class="metric-value">DESIGN.md</div>
+            <div class="metric-subtitle">Stitch &amp; DTCG Compliant</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-title">Extraction Security</div>
+            <div class="metric-value text-success">SSRF Shield</div>
+            <div class="metric-subtitle">Zero Private IP Ingestion</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-title">AI Coding Agents</div>
+            <div class="metric-value text-accent">MCP Active</div>
+            <div class="metric-subtitle">Claude, Cursor, Codex ready</div>
+          </div>
+        </div>
+
+        <div class="section-title">
+          <h2>Featured Systems</h2>
+          <span class="section-badge">Benchmarks</span>
+        </div>
+        <div class="featured-grid" id="featuredGrid">
+          <!-- Populated by JS -->
+        </div>
+
+        <div class="section-title" style="margin-top: 32px;">
+          <h2>Category Distribution</h2>
+        </div>
+        <div class="category-chips-grid" id="categoryChips">
+          <!-- Populated by JS -->
+        </div>
+      </section>
+
+      <!-- TAB 2: DESIGN LIBRARY -->
+      <section id="tab-library" class="tab-pane">
+        <div class="pane-header">
+          <div>
+            <h1>Design Systems Library</h1>
+            <p>Browse, search, and filter structured tokens across 168+ production design systems.</p>
+          </div>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="filters-bar">
+          <input type="text" id="libSearchQuery" class="input" placeholder="Search by brand name or keyword...">
+          <select id="libCategorySelect" class="select">
+            <option value="">All Categories</option>
+          </select>
+          <select id="libThemeSelect" class="select">
+            <option value="">All Themes</option>
+            <option value="light">Light Theme</option>
+            <option value="dark">Dark Theme</option>
+          </select>
+          <div class="color-picker-filter">
+            <label>Color Match:</label>
+            <input type="color" id="libColorPicker" value="#38BDF8">
+            <button id="btnClearColor" class="btn btn-sm btn-secondary">Clear</button>
+          </div>
+        </div>
+
+        <div class="results-stats">
+          <span id="libResultsCount">Loading design systems...</span>
+        </div>
+
+        <div class="brand-cards-grid" id="brandCardsGrid">
+          <!-- Cards populated by JS -->
+        </div>
+      </section>
+
+      <!-- TAB 3: WEBSITE ANALYZER -->
+      <section id="tab-analyzer" class="tab-pane">
+        <div class="pane-header">
+          <div>
+            <h1>Live Website Design Analyzer</h1>
+            <p>Submit any public web URL to extract computed styles, cluster color tokens, and deduce modular typography scales.</p>
+          </div>
+        </div>
+
+        <div class="analyzer-form card">
+          <div class="form-row">
+            <input type="url" id="analyzerUrlInput" class="input flex-1" placeholder="https://example.com" value="https://stripe.com">
+            <button id="btnRunAnalysis" class="btn btn-primary">Run Design Analysis</button>
+          </div>
+          <div class="form-options">
+            <label class="checkbox-label">
+              <input type="checkbox" id="chkSkipRobots"> Bypass robots.txt policy check (conservative testing)
+            </label>
+            <span class="security-badge">🛡️ SSRF Protected</span>
+          </div>
+        </div>
+
+        <div id="analyzerStatus" class="status-banner hidden"></div>
+
+        <div id="analyzerResults" class="analyzer-results hidden">
+          <!-- Analysis Output Grid -->
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-title">Overall Confidence</div>
+              <div class="metric-value text-accent" id="anaConfOverall">92%</div>
+              <div class="metric-subtitle" id="anaConfElements">Sampled 480 elements</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-title">Detected Theme</div>
+              <div class="metric-value" id="anaTheme">Dark</div>
+              <div class="metric-subtitle">Based on surface luminance</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-title">Modular Type Scale</div>
+              <div class="metric-value" id="anaTypeScale">Major Third</div>
+              <div class="metric-subtitle" id="anaPrimaryFont">Inter</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-title">Base Spacing Rhythm</div>
+              <div class="metric-value" id="anaSpacingGrid">8px</div>
+              <div class="metric-subtitle">Proportional layout grid</div>
+            </div>
+          </div>
+
+          <!-- Color Clusters -->
+          <div class="card" style="margin-top: 24px;">
+            <h3>Synthesized Semantic Color Roles</h3>
+            <div class="swatches-row" id="anaColorRoles"></div>
+          </div>
+
+          <!-- Action buttons -->
+          <div class="action-buttons-row">
+            <button id="btnSaveAnalyzedCustom" class="btn btn-primary">Save to Custom Systems</button>
+            <button id="btnExportAnalyzedTokens" class="btn btn-secondary">Export Tokens (CSS/Tailwind)</button>
+            <button id="btnViewAnalyzedDesignMd" class="btn btn-secondary">View DESIGN.md</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 4: TOKEN EXPLORER -->
+      <section id="tab-tokens" class="tab-pane">
+        <div class="pane-header">
+          <div>
+            <h1 id="tokenExplorerTitle">Token Explorer</h1>
+            <p id="tokenExplorerSubtitle">Inspect fine-grained design tokens, hex values, and component styles.</p>
+          </div>
+          <div class="token-explorer-selector">
+            <select id="tokenSystemSelect" class="select"></select>
+          </div>
+        </div>
+
+        <div class="token-sections">
+          <!-- Colors -->
+          <div class="card token-card">
+            <h3>🎨 Color Tokens</h3>
+            <div class="token-table-container">
+              <table class="token-table" id="tokenColorTable">
+                <thead>
+                  <tr>
+                    <th>Role</th>
+                    <th>Hex Value</th>
+                    <th>Preview</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Typography -->
+          <div class="card token-card">
+            <h3>🔤 Typography Hierarchy</h3>
+            <div class="token-table-container">
+              <table class="token-table" id="tokenTypoTable">
+                <thead>
+                  <tr>
+                    <th>Role</th>
+                    <th>Font Family</th>
+                    <th>Size</th>
+                    <th>Weight</th>
+                    <th>Specimen</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Spacing & Shapes -->
+          <div class="card token-card">
+            <h3>📐 Spacing &amp; Radii</h3>
+            <div class="spacing-flex-row" id="tokenSpacingRow"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 5: DESIGN COMPARISON -->
+      <section id="tab-compare" class="tab-pane">
+        <div class="pane-header">
+          <div>
+            <h1>Design System Comparison Studio</h1>
+            <p>Compute quantitative visual differences, palette overlap, typography divergence, and similarity index.</p>
+          </div>
+        </div>
+
+        <div class="compare-selectors card">
+          <div class="compare-col">
+            <label>System A:</label>
+            <select id="compareSysA" class="select"></select>
+          </div>
+          <div class="compare-vs">VS</div>
+          <div class="compare-col">
+            <label>System B:</label>
+            <select id="compareSysB" class="select"></select>
+          </div>
+          <button id="btnRunCompare" class="btn btn-primary">Compare Systems</button>
+        </div>
+
+        <div id="compareResults" class="compare-results hidden">
+          <div class="metrics-grid">
+            <div class="metric-card">
+              <div class="metric-title">Overall Similarity</div>
+              <div class="metric-value text-accent" id="cmpSimilarity">78%</div>
+              <div class="metric-subtitle">Composite index</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-title">Primary Accent DeltaE</div>
+              <div class="metric-value" id="cmpDeltaE">14.2</div>
+              <div class="metric-subtitle" id="cmpDeltaELabel">Divergent hues</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-title">Palette Overlap</div>
+              <div class="metric-value" id="cmpPaletteOverlap">42%</div>
+              <div class="metric-subtitle">Visually close shades</div>
+            </div>
+            <div class="metric-card">
+              <div class="metric-title">Theme Match</div>
+              <div class="metric-value" id="cmpThemeMatch">Yes</div>
+              <div class="metric-subtitle" id="cmpThemeDetail">Both Dark</div>
+            </div>
+          </div>
+
+          <div class="side-by-side-grid" style="margin-top: 24px;">
+            <div class="card" id="cmpCardA">
+              <h3 id="cmpNameA">System A</h3>
+              <div id="cmpDetailsA"></div>
+            </div>
+            <div class="card" id="cmpCardB">
+              <h3 id="cmpNameB">System B</h3>
+              <div id="cmpDetailsB"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 6: DESIGN.MD STUDIO -->
+      <section id="tab-generator" class="tab-pane">
+        <div class="pane-header">
+          <div>
+            <h1>DESIGN.md Generator Studio</h1>
+            <p>Generate, edit, and validate Stitch-compatible DESIGN.md plain-text design specifications.</p>
+          </div>
+          <div>
+            <button id="btnDownloadDesignMd" class="btn btn-primary">Download DESIGN.md</button>
+            <button id="btnCopyDesignMd" class="btn btn-secondary">Copy to Clipboard</button>
+          </div>
+        </div>
+
+        <div class="studio-layout">
+          <div class="studio-sidebar card">
+            <h3>Load System</h3>
+            <select id="studioSystemSelect" class="select" style="margin-bottom: 16px;"></select>
+            <button id="btnStudioLoad" class="btn btn-secondary w-full">Load into Editor</button>
+            
+            <h3 style="margin-top: 24px;">Validation Status</h3>
+            <div id="studioValidationStatus" class="validation-status-box valid">
+              <span>Valid DESIGN.md format</span>
+            </div>
+          </div>
+          <div class="studio-editor card">
+            <textarea id="studioMarkdownTextarea" class="code-textarea" spellcheck="false"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 7: EXPORT CENTER -->
+      <section id="tab-export" class="tab-pane">
+        <div class="pane-header">
+          <div>
+            <h1>Token Export Center</h1>
+            <p>Compile design tokens into developer-ready code: CSS Custom Properties, Tailwind CSS, W3C DTCG JSON, and SCSS.</p>
+          </div>
+        </div>
+
+        <div class="export-controls card">
+          <div class="form-row">
+            <div class="flex-1">
+              <label>Select Design System:</label>
+              <select id="exportSystemSelect" class="select"></select>
+            </div>
+            <div>
+              <label>Format:</label>
+              <div class="btn-group">
+                <button class="btn btn-secondary active export-fmt-btn" data-fmt="css">CSS Variables</button>
+                <button class="btn btn-secondary export-fmt-btn" data-fmt="tailwind">Tailwind</button>
+                <button class="btn btn-secondary export-fmt-btn" data-fmt="dtcg">DTCG JSON</button>
+                <button class="btn btn-secondary export-fmt-btn" data-fmt="scss">SCSS</button>
+              </div>
+            </div>
+            <div style="align-self: flex-end;">
+              <button id="btnDownloadExport" class="btn btn-primary">Download Code</button>
+              <button id="btnCopyExport" class="btn btn-secondary">Copy</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card code-preview-card">
+          <pre id="exportCodePreview" class="code-block"></pre>
+        </div>
+      </section>
+
+      <!-- TAB 8: AI AGENT & MCP -->
+      <section id="tab-agent" class="tab-pane">
+        <div class="pane-header">
+          <div>
+            <h1>AI Coding Agent Integrations</h1>
+            <p>Connect OneForge Sledge to Claude Code, Cursor, Codex, Windsurf, and Antigravity via Model Context Protocol (MCP).</p>
+          </div>
+        </div>
+
+        <div class="mcp-setup-grid">
+          <!-- Setup Guide -->
+          <div class="card">
+            <h3>🤖 Claude Code Setup</h3>
+            <p>Add OneForge Sledge to Claude Code via terminal:</p>
+            <pre class="code-snippet"><code>claude mcp add --transport stdio sledge "node ./bin/sledge.mjs mcp"</code></pre>
+
+            <h3 style="margin-top: 20px;">⚡ Cursor &amp; Codex Setup</h3>
+            <p>Add to your MCP settings configuration (`claude_desktop_config.json` or Cursor settings):</p>
+            <pre class="code-snippet"><code>{
+  "mcpServers": {
+    "oneforge-sledge": {
+      "command": "node",
+      "args": ["bin/sledge.mjs", "mcp"]
+    }
+  }
+}</code></pre>
+          </div>
+
+          <!-- MCP Live Tester -->
+          <div class="card">
+            <h3>🧪 Live In-Browser MCP Tester</h3>
+            <p>Execute tools synchronously over JSON-RPC 2.0:</p>
+            <div class="form-row" style="margin-top: 12px;">
+              <select id="mcpToolSelect" class="select flex-1">
+                <option value="sledge_search_library">sledge_search_library</option>
+                <option value="sledge_get_design_system">sledge_get_design_system</option>
+                <option value="sledge_export_tokens">sledge_export_tokens</option>
+                <option value="sledge_compare_design_systems">sledge_compare_design_systems</option>
+              </select>
+              <button id="btnExecuteMcpTool" class="btn btn-primary">Execute Tool</button>
+            </div>
+            <textarea id="mcpArgsInput" class="code-textarea" style="height: 100px; margin-top: 12px;">{ "query": "Stripe" }</textarea>
+            <h4 style="margin-top: 16px;">MCP Response:</h4>
+            <pre id="mcpResultOutput" class="code-block" style="height: 180px;"></pre>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 9: SETTINGS & CUSTOM SYSTEMS -->
+      <section id="tab-settings" class="tab-pane">
+        <div class="pane-header">
+          <div>
+            <h1>Custom Design Systems &amp; Settings</h1>
+            <p>Manage user-created design systems stored locally in your workspace.</p>
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 24px;">
+          <h3>Create New Custom Design System</h3>
+          <p>Paste or write a DESIGN.md document below to save it into your local custom library:</p>
+          <textarea id="customSystemInput" class="code-textarea" style="height: 180px;" placeholder="Paste valid DESIGN.md content here..."></textarea>
+          <button id="btnSaveCustomSystem" class="btn btn-primary" style="margin-top: 12px;">Save Custom System</button>
+        </div>
+
+        <div class="card">
+          <h3>Your Custom Systems Library</h3>
+          <div id="customSystemsList" class="custom-systems-list">
+            <p class="text-muted">No custom systems created yet. Run the Website Analyzer or paste a DESIGN.md above to add one.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TAB 10: DOCUMENTATION -->
+      <section id="tab-docs" class="tab-pane">
+        <div class="pane-header">
+          <div>
+            <h1>OneForge Sledge Documentation</h1>
+            <p>Technical reference for the DESIGN.md format, CLI commands, and REST API.</p>
+          </div>
+        </div>
+
+        <div class="card docs-card">
+          <h2>1. What is DESIGN.md?</h2>
+          <p>
+            <code>DESIGN.md</code> is a plain-text design system specification originally published by Google (Stitch project).
+            It consists of structured YAML frontmatter at the top defining exact color hex values, typography scales,
+            spacing tokens, and component definitions, followed by human- and AI-readable Markdown design rules.
+          </p>
+
+          <h2 style="margin-top: 24px;">2. Command Line Interface (CLI)</h2>
+          <pre class="code-snippet"><code># Initialize starter DESIGN.md
+sledge init
+
+# Search library
+sledge search "Stripe" --theme=light
+
+# Safely extract and analyze live site
+sledge analyze https://example.com
+
+# Generate DESIGN.md
+sledge generate https://example.com -o DESIGN.md
+
+# Compare two design systems
+sledge compare stripe.com linear.app
+
+# Export tokens to CSS or Tailwind
+sledge export stripe.com --format=css
+sledge export stripe.com --format=tailwind
+
+# Launch Web Dashboard
+sledge serve --port=3456</code></pre>
+
+          <h2 style="margin-top: 24px;">3. REST API Reference</h2>
+          <table class="token-table">
+            <thead>
+              <tr><th>Method</th><th>Endpoint</th><th>Description</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>GET</td><td>/api/catalog</td><td>Returns library stats and categories</td></tr>
+              <tr><td>GET</td><td>/api/search?q=...</td><td>Search systems with filters</td></tr>
+              <tr><td>GET</td><td>/api/brands/:host</td><td>Retrieve complete tokens for host</td></tr>
+              <tr><td>POST</td><td>/api/analyze</td><td>Extract &amp; synthesize live site</td></tr>
+              <tr><td>POST</td><td>/api/compare</td><td>Compare two design systems</td></tr>
+              <tr><td>POST</td><td>/api/export</td><td>Export tokens to CSS/Tailwind/DTCG/SCSS</td></tr>
+              <tr><td>POST</td><td>/mcp</td><td>Model Context Protocol JSON-RPC gateway</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

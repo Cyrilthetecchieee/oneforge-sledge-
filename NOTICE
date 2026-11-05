@@ -1,0 +1,20 @@
+OneForge Sledge
+Copyright 2026 OneForge (https://oneforge.dev)
+
+This product includes software and documentation developed by OneForge.
+
+========================================================================
+THIRD-PARTY ATTRIBUTIONS & DATA NOTICES
+========================================================================
+
+The baseline DESIGN.md files and generated READMEs in the `design-md/` directory
+and catalog metadata in `index.json` are adapted from the Sitepeel DESIGN.md
+library (https://github.com/Josephbadigar/design-md) and are licensed under the
+Creative Commons Attribution 4.0 International License (CC BY 4.0).
+See LICENSE-CC-BY-4.0.txt and THIRD_PARTY_NOTICES.md for details.
+
+Credit: Sitepeel (sitepeel.dev) — https://sitepeel.dev
+
+Brand names and trademarks belong to their respective owners. Each design system
+file is an independent measurement of a public website and does not constitute
+an official design system or endorsement by the referenced brand.

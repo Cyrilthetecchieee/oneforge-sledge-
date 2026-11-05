@@ -1,0 +1,48 @@
+{
+  "name": "@oneforge/sledge",
+  "version": "1.0.0",
+  "description": "OneForge Sledge — AI-Powered Design Intelligence and Design System Engineering Platform",
+  "type": "module",
+  "main": "./src/index.mjs",
+  "bin": {
+    "sledge": "./bin/sledge.mjs"
+  },
+  "scripts": {
+    "start": "node bin/sledge.mjs serve",
+    "test": "node --test tests/*.test.mjs",
+    "cli": "node bin/sledge.mjs",
+    "mcp": "node bin/sledge.mjs mcp",
+    "serve": "node bin/sledge.mjs serve",
+    "validate": "node bin/sledge.mjs validate"
+  },
+  "keywords": [
+    "design-systems",
+    "design-tokens",
+    "design-md",
+    "design-intelligence",
+    "mcp",
+    "mcp-server",
+    "ai-coding-agents",
+    "claude-code",
+    "cursor",
+    "codex",
+    "oneforge",
+    "sledge"
+  ],
+  "author": "OneForge Engineering <engineering@oneforge.dev>",
+  "contributors": [
+    "OneForge Core Architecture Team"
+  ],
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MY_GITHUB_USERNAME/oneforge-sledge.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MY_GITHUB_USERNAME/oneforge-sledge/issues"
+  },
+  "homepage": "https://github.com/MY_GITHUB_USERNAME/oneforge-sledge#readme",
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
