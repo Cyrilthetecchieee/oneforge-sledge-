@@ -52,7 +52,7 @@ For comprehensive technical specifications, domain models, and security boundari
 
 ```bash
 # Clone the repository
-git clone https://github.com/MY_GITHUB_USERNAME/oneforge-sledge.git
+git clone https://github.com/Cyrilthetecchieee/oneforge-sledge-.git
 cd oneforge-sledge
 
 # No external dependencies required! Uses native Node 20+ runtime capabilities.

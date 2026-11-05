@@ -22,7 +22,7 @@ No external database or package compilation dependencies are required. The entir
 
 ```bash
 # Clone repository
-git clone https://github.com/MY_GITHUB_USERNAME/oneforge-sledge.git
+git clone https://github.com/Cyrilthetecchieee/oneforge-sledge-.git
 cd oneforge-sledge
 
 # Verify installation by running test suite
