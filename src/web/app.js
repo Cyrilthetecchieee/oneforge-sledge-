@@ -67,7 +67,7 @@ function switchTab(tabId) {
 
 /* Dark / Light Theme */
 function initTheme() {
-  const saved = localStorage.getItem('sledge-theme') || 'dark';
+  const saved = localStorage.getItem('sledge-theme') || 'light';
   setTheme(saved);
 
   themeToggle.addEventListener('click', () => {
